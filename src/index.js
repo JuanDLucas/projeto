@@ -1,0 +1,11 @@
+// express trabalha com serviços http
+
+const express = require("express");
+const app = express();
+
+app.get("/", function(request, response) {
+    response.send("Hello, World!");
+})
+app.listen(3000, function() {
+    console.log('Servidor rodando na porta 3000');
+});
