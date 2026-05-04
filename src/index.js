@@ -1,11 +1,19 @@
 // express trabalha com serviços http
-
-const express = require("express");
+require('dotenv').config();
+const express = require('express');
 const app = express();
 
-app.get("/", function(request, response) {
-    response.send("Hello, World!");
-})
-app.listen(3000, function() {
-    console.log('Servidor rodando na porta 3000');
+app.get('/', (req, res) => {
+    res.send("Olá, Davi Boyzinho 76");
+});
+
+app.get('/welcome', (req, res) => {
+    const nome = req.query.nome || 'curioso';
+    res.send(`Olá, ${nome}`);
+});
+
+const PORTA = process.env.PORT || 3000;
+
+app.listen(PORTA, ()=> {
+    console.log(`Servidor rodando na porta ${PORTA}`);
 });
